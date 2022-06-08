@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+}
+
+<head>
+    <style type="text/css">
+        .auto-style {
+            color: #FFFFFF;
+        }
+
+        .t {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<div class="well-sm">
+    <h2>Images</h2>
+</div>
+
+@{ var result = "";
+    Array tempData = null;
+    char[] delimiterChar = { ',' };
+
+    var dataFile = Server.MapPath("~/App_Data/data.txt");
+
+    if (File.Exists(dataFile))
+    {
+        tempData = File.ReadAllLines(dataFile);
+        if (tempData == null)
+        {
+            // Empty file.
+            result = "The file is empty.";
+        }
+    }
+    else
+    {
+        // File does not exist.
+        result = "The file does not exist.";
+    } }
